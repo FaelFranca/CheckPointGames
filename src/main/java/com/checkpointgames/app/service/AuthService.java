@@ -19,11 +19,11 @@ public class AuthService {
         this.jwtUtil = jwtUtil;
     }
 
-    public String login(String email, String senha) {
+    public String login(String email, String password) {
         Users user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new InvalidCredentialsException("Email ou senha inválidos"));
 
-        if (!passwordEncoder.matches(senha, user.getPassword())) {
+        if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new InvalidCredentialsException("Email ou senha inválidos");
         }
 

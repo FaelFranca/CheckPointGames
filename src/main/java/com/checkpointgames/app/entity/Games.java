@@ -23,7 +23,7 @@ public class Games {
     @Column(name = "DESCRIPTION", columnDefinition = "TEXT")
     private String description;
 
-    @NotBlank
+    @NotNull
     @Column(name = "INVENTORY")
     private Integer inventory;
     
@@ -34,10 +34,9 @@ public class Games {
     @Column(name = "LINK_IMAGE", columnDefinition = "TEXT")
     private String linkImage;
     
-    @NotBlank
-    @Size(max = 1)
+    @NotNull
     @Column(name = "STATUS", columnDefinition = "integer default 0")
-    private String status;    
+    private Integer status;    
 
 
     public Integer getId() {
@@ -78,6 +77,22 @@ public class Games {
 
     public void setLinkImage(String linkImage) {
         this.linkImage = linkImage;
+    }
+
+    public Integer getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Integer inventory) {
+        this.inventory = inventory;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     

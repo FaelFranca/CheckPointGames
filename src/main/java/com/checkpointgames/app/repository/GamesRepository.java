@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.checkpointgames.app.repository;
 
-/**
- *
- * @author snake
- */
-public class GamesRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
+import com.checkpointgames.app.entity.Games;
+import java.util.List;
+import org.springframework.data.jpa.repository.Query;
+
+public interface GamesRepository extends JpaRepository<Games, Integer>, GamesRepositoryCustom{
+
+    Optional<Games> findById(Integer id);
     
+    @Query(value = "SELECT * FROM games where status = '0'", nativeQuery = true)
+    List<Games> findActivityGames();
+
 }

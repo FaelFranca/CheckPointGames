@@ -18,7 +18,7 @@ import java.util.Map;
 
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
-
+    
     @ExceptionHandler(InvalidCredentialsException.class)
     public ResponseEntity<Object> handleInvalidCredentials (InvalidCredentialsException ex){
         Map<String, Object> body = new HashMap<>();
@@ -29,6 +29,16 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         
         return new ResponseEntity<>(body, HttpStatus.UNAUTHORIZED);
     }
+    
+    public ResponseEntity<Object> handleInvalidId (InvalidIdException ex){
+        Map<String, Object> body = new HashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", HttpStatus.UNAUTHORIZED.value());
+        body.put("error", "Unauthorized");
+        body.put("message", ex.getMessage());
+        
+        return new ResponseEntity<>(body, HttpStatus.UNAUTHORIZED);
+    }    
             
             
     // Trata erros de validação (@NotBlank, @Email, etc.)

@@ -2,17 +2,18 @@ package com.checkpointgames.app.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "GameKeys")
+@Table(name = "gamekeys")
 public class GameKeys {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @NotBlank
+    @NotNull
     @ManyToOne(optional = true)
     @JoinColumn(name = "ID_GAME", referencedColumnName = "ID")
     private Games idGame;
@@ -21,10 +22,8 @@ public class GameKeys {
     @Column(name = "KEY", columnDefinition = "TEXT")
     private String key;
     
-    @NotBlank
-    @Size(max = 1)
     @Column(name = "STATUS", columnDefinition = "integer default 0")
-    private String status;    
+    private Integer status;    
 
     public Integer getId() {
         return id;
@@ -50,11 +49,11 @@ public class GameKeys {
         this.key = key;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
     

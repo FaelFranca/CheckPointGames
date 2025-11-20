@@ -13,7 +13,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     @JoinColumn(name = "ID_COSTUMER", referencedColumnName = "ID")
     private Users costumer;
     
@@ -38,6 +38,72 @@ public class Order {
     @Column(name = "STATUS", columnDefinition = "integer default 0")
     @NotNull
     private Integer status = 0;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Users getCostumer() {
+        return costumer;
+    }
+
+    public void setCostumer(Users costumer) {
+        this.costumer = costumer;
+    }
+
+    public BigDecimal getSaleValue() {
+        return saleValue;
+    }
+
+    public void setSaleValue(BigDecimal saleValue) {
+        this.saleValue = saleValue;
+    }
+
+    public BigDecimal getItensValue() {
+        return itensValue;
+    }
+
+    public void setItensValue(BigDecimal itensValue) {
+        this.itensValue = itensValue;
+    }
+
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
+    }
+
+    public BigDecimal getAddition() {
+        return addition;
+    }
+
+    public void setAddition(BigDecimal addition) {
+        this.addition = addition;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+    
+    
 }
     
 
