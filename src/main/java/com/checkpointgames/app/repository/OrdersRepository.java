@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface OrdersRepository extends JpaRepository<Order, Integer>, OrdersRepositoryCustom{
 
-    Optional<Order> findById(Integer id);
+    Optional<Order> findById(Long id);
 
     @Query(value = "SELECT * FROM orders where status = '0'", nativeQuery = true)
     List<Order> findOpenOrders();

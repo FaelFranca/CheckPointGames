@@ -1,9 +1,12 @@
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\AppApplication.java
+C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\config\MercadoPagoConfigClass.java
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\controller\AuthController.java
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\controller\GamesController.java
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\controller\GamesKeysController.java
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\controller\ItensController.java
+C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\controller\MercadoPagoWebhookController.java
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\controller\OrderController.java
+C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\controller\PaymentController.java
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\controller\UsersController.java
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\dto\ItensCreateDTO.java
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\dto\ItensUpdateDTO.java
@@ -41,4 +44,6 @@ C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\se
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\service\GamesService.java
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\service\ItensService.java
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\service\OrderService.java
+C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\service\PaymentService.java
+C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\service\PaymentValidationService.java
 C:\Users\User\Documents\CheckPointGames\src\main\java\com\checkpointgames\app\service\UserService.java

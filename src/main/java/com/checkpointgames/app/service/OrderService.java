@@ -14,8 +14,23 @@ public class OrderService {
     @Autowired
     private OrdersRepository ordersRepository;
     
-    public Order saveOrder(Order order){
-        return ordersRepository.save(order);
+    @Autowired
+    private PaymentService paymentService;
+    
+    public Order saveOrder(Order order) throws Exception{
+        Order saved = ordersRepository.save(order);
+        
+        String paymentLink = paymentService.createCheckoutPreference(
+                saved.getId(),
+                "Pedido: " + saved.getId(),
+                1,
+                saved.getSaleValue()
+        );
+        
+        saved.setPaymentLink(paymentLink);
+        ordersRepository.save(saved);
+        
+        return saved;
     }
     
     public Order updateOrder(Order order) {

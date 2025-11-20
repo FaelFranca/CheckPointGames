@@ -39,6 +39,17 @@ public class Order {
     @NotNull
     private Integer status = 0;
 
+    @Column(name = "paymentLink")
+    private String paymentLink;
+
+    public String getPaymentLink() {
+        return paymentLink;
+    }
+
+    public void setPaymentLink(String paymentLink) {
+        this.paymentLink = paymentLink;
+    }
+    
     public Integer getId() {
         return id;
     }
