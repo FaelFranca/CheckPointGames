@@ -1,13 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.checkpointgames.app.repository;
 
-/**
- *
- * @author snake
- */
-public class OrdersRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
+import com.checkpointgames.app.entity.Order;
+import java.util.List;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+public interface OrdersRepository extends JpaRepository<Order, Integer>, OrdersRepositoryCustom{
+
+    Optional<Order> findById(Integer id);
+
+    @Query(value = "SELECT * FROM orders where status = '0'", nativeQuery = true)
+    List<Order> findOpenOrders();
+  
+    @Query(value = "SELECT * FROM orders where status = '1'", nativeQuery = true)
+    List<Order> findClosedOrders();
     
+    @Query(value = "SELECT * FROM orders where status = '2'", nativeQuery = true)
+    List<Order> findCanceledOrders();
+    
+    @Query(value = "SELECT * FROM orders where id_costumer = :clientId", nativeQuery = true)
+    List<Order> findByClient(@Param("clientId") Integer idCostumer);    
+        
+        
 }

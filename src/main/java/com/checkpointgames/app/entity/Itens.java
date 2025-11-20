@@ -2,7 +2,7 @@ package com.checkpointgames.app.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
@@ -13,17 +13,16 @@ public class Itens {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @NotBlank
+    @NotNull
     @ManyToOne(optional = true)
     @JoinColumn(name = "ID_GAME", referencedColumnName = "ID")
     private Games idGame;
 
-    @NotBlank
+    @NotNull
     @ManyToOne(optional = true)
     @JoinColumn(name = "ID_ORDER", referencedColumnName = "ID")
     private Order idOrder;
 
-    @NotBlank
     @ManyToOne(optional = false)
     @JoinColumn(name = "ID_KEY", referencedColumnName = "ID")
     private GameKeys idKey;

@@ -15,5 +15,8 @@ public interface GamesKeysRepository extends JpaRepository<GameKeys, Integer>, G
     List<GameKeys> findActivityGamesKeys();
     
     List<GameKeys> findByIdGame_Id(Integer idGame);
+    
+    @Query("SELECT k FROM GameKeys k WHERE k.idGame.id = :gameId AND k.status = 0 ORDER BY k.id ASC")
+    List<GameKeys> findAvailableKeys(Integer gameId);
 
 }

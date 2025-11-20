@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.checkpointgames.app.repository;
 
-/**
- *
- * @author snake
- */
-public class ItensRepository {
-    
+import com.checkpointgames.app.entity.Itens;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+public interface ItensRepository extends JpaRepository<Itens, Integer>, ItensRepositoryCustom {
+
+    List<Itens> findByIdOrder_Id(Integer orderId);
+
+    List<Itens> findByIdGame_Id(Integer gameId);
 }
