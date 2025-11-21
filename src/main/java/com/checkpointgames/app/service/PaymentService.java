@@ -12,6 +12,7 @@ import com.mercadopago.resources.payment.Payment;
 import com.mercadopago.net.MPResultsResourcesPage;
 import com.mercadopago.resources.preference.Preference;
 import com.mercadopago.client.payment.PaymentClient;
+import com.mercadopago.client.preference.PreferenceBackUrlsRequest;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -55,13 +56,20 @@ public class PaymentService {
                 .currencyId("BRL") // opcional, mas recomendado
                 .build();
 
-        // REQUEST
-        PreferenceRequest request = PreferenceRequest.builder()
-                .externalReference(String.valueOf(orderId)) 
-                .notificationUrl("https://seusite.com/webhook/mercadopago")
-                .items(List.of(item))
+        // BACKURLS
+        PreferenceBackUrlsRequest backUrls = PreferenceBackUrlsRequest.builder()
+                .success("https://www.f-secure.com/")
+                .pending("https://www.f-secure.com/")
+                .failure("https://www.f-secure.com/")
                 .build();
 
+        // REQUEST
+        PreferenceRequest request = PreferenceRequest.builder()
+            .externalReference(String.valueOf(orderId))
+            .items(List.of(item))
+            .backUrls(backUrls)
+            .autoReturn("approved")
+            .build();
         // CLIENT
         PreferenceClient client = new PreferenceClient();
 
